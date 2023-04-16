@@ -5,6 +5,7 @@ sign=null
 vk_user_id=null
 vk_ts=null
 vk_ref=null
+user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
 
 function authenticate() {
 	# 1 - sign: (string): <sign>
@@ -27,7 +28,7 @@ function authenticate() {
 function get_profile() {
 	curl --request GET \
 		--url "$api/profile" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -40,7 +41,7 @@ function get_products() {
 	# 5 - sort_type: (string): <sort_type - default: desc>
 	curl --request GET \
 		--url "$api/products?query=$1&limit=${2:-10}&offset=${3:-0}&sort_method=${4:-id}&sort_type=${5:-desc}" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -48,7 +49,7 @@ function get_products() {
 function get_wall() {
 	curl --request GET \
 		--url "$api/wall" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -58,7 +59,7 @@ function get_favorites() {
 	# 2 - offset: (integer): <offset - default: 0>
 	curl --request GET \
 		--url "$api/favorites?&limit=${1:-25}&offset=${2:-0}" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -66,7 +67,7 @@ function get_favorites() {
 function get_withdraw() {
 	curl --request GET \
 		--url "$api/withdraw" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -75,7 +76,7 @@ function review_product() {
 	# 1 - product_id: (integer): <product_id>
 	curl --request GET \
 		--url "$api/reviews/$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -84,7 +85,7 @@ function get_product_info() {
 	# 1 - product_id: (integer): <product_id>
 	curl --request GET \
 		--url "$api/products/$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -93,7 +94,7 @@ function add_favorite() {
 	# 1 - product_id: (integer): <product_id>
 	curl --request POST \
 		--url "$api/favorites/$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -102,7 +103,7 @@ function delete_favorite() {
 	# 1 - product_id: (integer): <product_id>
 	curl --request DELETE \
 		--url "$api/favorites/$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
@@ -113,7 +114,7 @@ function get_category_products() {
 	# 3 - offset: (integer): <offset - default: 0>
 	curl --request GET \
 		--url "$api/categories/$1?&limit=${2:-25}&offset=${3:-0}" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--header "content-type: application/json" \
 		--header "authorization: Bearer $params"
 }
